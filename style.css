@@ -1,0 +1,29 @@
+* { box-sizing: border-box; }
+body {
+    font-family: 'Lexend', sans-serif;
+    background: linear-gradient(135deg, #FFD1DC, #B0E0E6);
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; margin: 0; color: #5d5d5d;
+}
+.container {
+    background: white; padding: 50px 30px; border-radius: 40px;
+    width: 90%; max-width: 500px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.main-title, .inner-title-fitur { font-weight: 600; font-size: 2.2em; margin-bottom: 10px; }
+.inner-title-fitur { margin-top: 30px; font-size: 1.8em; }
+.btn-menu {
+    font-family: 'Lexend', sans-serif; font-weight: 300; width: 100%;
+    padding: 15px; margin: 10px 0; border: 1px solid #FFD1DC;
+    border-radius: 15px; background: white; cursor: pointer; transition: 0.2s;
+}
+.btn-menu:hover { background: #FFF9FA; transform: translateY(-2px); }
+.btn-back { background: none; border: none; color: #aaa; cursor: pointer; float: left; }
+input {
+    width: 80%; padding: 12px; border: 1.5px solid #B0E0E6;
+    border-radius: 15px; font-family: 'Lexend', sans-serif; outline: none; margin-top: 10px;
+}
+#displayIsyarat { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
+#displayIsyarat img { width: 60px; height: 60px; object-fit: contain; border-radius: 10px; border: 1px solid #eee; }
+#gameDisplay { width: 120px; height: 120px; background: #f9f9f9; margin: 20px auto; border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px dashed #FFFACD; }
+#gameDisplay img { width: 90%; height: 90%; object-fit: contain; }
+.btn-aesthetic { background: #FFD1DC; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-weight: 500; }
