@@ -4,160 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talky Hands ✨</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        /* CSS GLOBAL */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body {
-            font-family: 'Lexend', sans-serif;
-            background: linear-gradient(135deg, #FFD1DC 0%, #B0E0E6 100%);
-            display: flex; justify-content: center; align-items: center;
-            min-height: 100vh; color: #5d5d5d; padding: 20px;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 50px 30px; border-radius: 40px;
-            width: 100%; max-width: 500px; text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            position: relative; /* Buat nahan tombol kembali */
-            overflow: hidden;
-        }
-
-        /* TOMBOL KEMBALI (Sudah Diperbaiki, Cantik di Pojok Kiri) */
-        .header-back {
-            position: absolute;
-            top: 25px;
-            left: 25px;
-            z-index: 10;
-        }
-
-        .btn-back {
-            background: none;
-            border: none;
-            color: #aaa;
-            cursor: pointer;
-            font-family: 'Lexend', sans-serif;
-            font-weight: 300;
-            font-size: 1em;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: 0.3s;
-        }
-
-        .btn-back:hover {
-            color: #888;
-            transform: translateX(-3px);
-        }
-
-        /* GAYA JUDUL DAN SUBTITLE */
-        .main-title { font-weight: 600; font-size: 2.2em; line-height: 1.2; margin-top: 10px; }
-        .inner-title-fitur { font-weight: 500; font-size: 1.8em; margin-top: 40px; margin-bottom: 5px; }
-        .by-qisty { color: #FF91A4; font-weight: 400; margin-bottom: 40px; font-size: 0.9em; }
-
-        /* GAYA TOMBOL MENU UTAMA */
-        .menu-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
-        .btn-menu {
-            font-family: 'Lexend', sans-serif; font-weight: 300; width: 100%;
-            padding: 18px; border: 1.5px solid #FFD1DC;
-            border-radius: 20px; background: white; cursor: pointer; transition: 0.3s;
-            font-size: 1em; color: #5d5d5d;
-        }
-        .btn-menu:hover { background: #FFF9FA; transform: translateY(-3px); border-color: #B0E0E6; }
-
-        /* INPUT DAN LAINNYA */
-        input {
-            width: 85%; padding: 15px; border: 1.5px solid #B0E0E6;
-            border-radius: 20px; font-family: 'Lexend', sans-serif; font-weight: 300;
-            outline: none; text-align: center; margin-top: 20px;
-        }
-
-        #displayIsyarat { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 25px; }
-        #displayIsyarat img { width: 65px; height: 65px; object-fit: contain; background: white; padding: 5px; border-radius: 12px; border: 1px solid #eee; }
-        #gameDisplay { width: 140px; height: 140px; background: white; margin: 25px auto; border-radius: 25px; display: flex; align-items: center; justify-content: center; border: 2px dashed #FFFACD; }
-        #gameDisplay img { width: 85%; height: 85%; object-fit: contain; }
-        .btn-aesthetic { background: #FFD1DC; color: white; border: none; padding: 12px 30px; border-radius: 15px; cursor: pointer; font-weight: 500; margin-top: 15px; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div id="menuUtama">
-            <h1 class="main-title">Halo! Selamat Datang di<br>Talky Hands ✨</h1>
-            <p class="by-qisty">by Qisty</p>
+            <h1>Halo! Selamat Datang di Talky Hands ✨</h1>
+            <p class="subtitle">by Qisty</p>
             <div class="menu-buttons">
-                <button class="btn-menu" onclick="showFitur('penerjemah')">📖 Mengenal Abjad BISINDO</button>
-                <button class="btn-menu" onclick="showFitur('game')">🎮 Main Game Tebak Isyarat</button>
+                <button onclick="bukaHalaman('halamanAbjad')" class="btn-menu">📖 Mengenal Abjad BISINDO</button>
+                <button onclick="bukaHalaman('halamanGame')" class="btn-menu">🎮 Main Game Tebak Isyarat</button>
             </div>
         </div>
 
-        <div id="penerjemahSection" style="display: none;">
-            <div class="header-back">
-                <button class="btn-back" onclick="location.reload()">⬅ Kembali</button>
-            </div>
-            <h2 class="inner-title-fitur">Mengenal Abjad BISINDO</h2>
-            <p style="color: #888; font-size: 0.9em; margin-bottom: 10px;">Ketik kata untuk melihat visualnya:</p>
+        <div id="halamanAbjad" style="display: none;">
+            <button onclick="bukaHalaman('menuUtama')" class="btn-back">← Kembali</button>
+            <h2>Mengenal Abjad BISINDO</h2>
+            <p>Ketik kata untuk melihat visualnya:</p>
             <input type="text" id="inputTeks" placeholder="Contoh: halo" oninput="translateKeIsyarat()">
-            <div id="displayIsyarat"></div>
+            <div class="result-section">
+                <div id="displayIsyarat"></div>
+            </div>
         </div>
 
-        <div id="gameSection" style="display: none;">
-            <div class="header-back">
-                <button class="btn-back" onclick="location.reload()">⬅ Kembali</button>
+        <div id="halamanGame" style="display: none;">
+            <button onclick="bukaHalaman('menuUtama')" class="btn-back">← Kembali</button>
+            <h2>🎮 Game Tebak Isyarat</h2>
+            <div id="gameDisplayContainer">
+                <div id="gameDisplay">
+                    <p>Siap?</p>
+                </div>
             </div>
-            <h2 class="inner-title-fitur">Game Tebak Isyarat</h2>
-            <div id="gameDisplay"><p style="color: #ccc;">Siap?</p></div>
-            <input type="text" id="tebakInput" placeholder="?" style="display: none; width: 70px; margin-top: 0;">
-            <br>
-            <button onclick="startGame()" id="btnGame" class="btn-aesthetic">Mulai Game</button>
-            <p id="feedback" style="font-weight: 600; margin-top: 15px;"></p>
+            <div class="game-controls">
+                <input type="text" id="tebakInput" placeholder="?" style="display: none; width: 60px;">
+                <br><br>
+                <button onclick="startGame()" id="btnGame" class="btn-aesthetic">Mulai Game</button>
+            </div>
+            <p id="feedback"></p>
+            <p class="score-text">Skor: <span id="skor">0</span></p>
         </div>
     </div>
-
-    <script>
-        /* JAVASCRIPT */
-        function showFitur(fitur) {
-            document.getElementById('menuUtama').style.display = 'none';
-            document.getElementById(fitur + 'Section').style.display = 'block';
-        }
-
-        function translateKeIsyarat() {
-            const teks = document.getElementById('inputTeks').value.toLowerCase();
-            const display = document.getElementById('displayIsyarat');
-            display.innerHTML = "";
-            for (let char of teks) {
-                if (char >= 'a' && char <= 'z') {
-                    const img = document.createElement('img');
-                    img.src = `./${char}.jpeg`; // Sesuai foto folder assets kamu
-                    display.appendChild(img);
-                } else if (char === " ") {
-                    const gap = document.createElement('div');
-                    gap.style.width = "20px";
-                    display.appendChild(gap);
-                }
-            }
-        }
-
-        let target = "";
-        function startGame() {
-            const abc = "abcdefghijklmnopqrstuvwxyz";
-            target = abc[Math.floor(Math.random() * 26)];
-            document.getElementById('gameDisplay').innerHTML = `<img src="./${target}.jpeg">`;
-            const input = document.getElementById('tebakInput');
-            input.style.display = "inline-block";
-            input.value = "";
-            input.focus();
-            document.getElementById('btnGame').innerText = "Ganti Huruf";
-            document.getElementById('feedback').innerText = "";
-
-            input.oninput = function() {
-                if (this.value.toLowerCase() === target) {
-                    document.getElementById('feedback').innerText = "✨ BENAR! ✨";
-                    setTimeout(startGame, 800);
-                }
-            };
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
