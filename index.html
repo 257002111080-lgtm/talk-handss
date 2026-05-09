@@ -129,7 +129,7 @@
             for (let char of teks) {
                 if (char >= 'a' && char <= 'z') {
                     const img = document.createElement('img');
-                    img.src = `./assets/${char}.jpeg`; // Sesuai foto folder assets kamu
+                    img.src = `./${char}.jpeg`; // Sesuai foto folder assets kamu
                     display.appendChild(img);
                 } else if (char === " ") {
                     const gap = document.createElement('div');
@@ -143,7 +143,7 @@
         function startGame() {
             const abc = "abcdefghijklmnopqrstuvwxyz";
             target = abc[Math.floor(Math.random() * 26)];
-            document.getElementById('gameDisplay').innerHTML = `<img src="./assets/${target}.jpeg">`;
+            document.getElementById('gameDisplay').innerHTML = `<img src="./${target}.jpeg">`;
             const input = document.getElementById('tebakInput');
             input.style.display = "inline-block";
             input.value = "";
