@@ -8,32 +8,32 @@ function bukaHalaman(idHalaman) {
 }
 
 const databaseIsyarat = {
-    "a": "assets/a.jpeg",
-    "b": "assets/b.jpeg",
-    "c": "assets/c.jpeg",
-    "d": "assets/d.jpeg",
-    "e": "assets/e.jpeg",
-    "f": "assets/f.jpeg",
-    "g": "assets/g.jpeg",
-    "h": "assets/h.jpeg",
-    "i": "assets/i.jpeg",
-    "j": "assets/j.jpeg",
-    "k": "assets/k.jpeg",
-    "l": "assets/l.jpeg",
-    "m": "assets/m.jpeg",
-    "n": "assets/n.jpeg",
-    "o": "assets/o.jpeg",
-    "p": "assets/p.jpeg",
-    "q": "assets/q.jpeg",
-    "r": "assets/r.jpeg",
-    "s": "assets/s.jpeg",
-    "t": "assets/t.jpeg",
-    "u": "assets/u.jpeg",
-    "v": "assets/v.jpeg",
-    "w": "assets/w.jpeg",
-    "x": "assets/x.jpeg",
-    "y": "assets/y.jpeg",
-    "z": "assets/z.jpeg"
+    "a": "a.jpeg",
+    "b": "b.jpeg",
+    "c": "c.jpeg",
+    "d": "d.jpeg",
+    "e": "e.jpeg",
+    "f": "f.jpeg",
+    "g": "g.jpeg",
+    "h": "h.jpeg",
+    "i": "i.jpeg",
+    "j": "j.jpeg",
+    "k": "k.jpeg",
+    "l": "l.jpeg",
+    "m": "m.jpeg",
+    "n": "n.jpeg",
+    "o": "o.jpeg",
+    "p": "p.jpeg",
+    "q": "q.jpeg",
+    "r": "r.jpeg",
+    "s": "s.jpeg",
+    "t": "t.jpeg",
+    "u": "u.jpeg",
+    "v": "v.jpeg",
+    "w": "w.jpeg",
+    "x": "x.jpeg",
+    "y": "y.jpeg",
+    "z": "z.jpeg"
 };
 
 // Fungsi Translator
@@ -62,7 +62,7 @@ function startGame() {
     const gameDisplay = document.getElementById('gameDisplay');
     const tebakInput = document.getElementById('tebakInput');
     
-    gameDisplay.innerHTML = `<img src="assets/${hurufTarget}.jpeg">`;
+    gameDisplay.innerHTML = `<img src="${hurufTarget}.jpeg">`;
     tebakInput.style.display = "inline-block";
     tebakInput.value = "";
     tebakInput.focus();
